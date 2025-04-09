@@ -13,7 +13,12 @@ const AdvancedAnalyticsPage = () => {
    const fetchData = () => {
       fetch("https://api.jsonbin.io/v3/qs/67f6ee7b8a456b796685ffd5")
          .then((res) => res.json())
-         .then((json) => setTransactions(json.record));
+         .then((json) => {
+            const data = Array.isArray(json.record)
+               ? json.record
+               : json.record?.record || [];
+            setTransactions(data);
+         });
    };
 
    useEffect(() => {

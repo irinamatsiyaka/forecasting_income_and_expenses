@@ -10,7 +10,10 @@ export const fetchTransactionsFromJsonbin = () => async (dispatch) => {
          "https://api.jsonbin.io/v3/qs/67f6ee7b8a456b796685ffd5"
       );
       const json = await res.json();
-      dispatch(setTransactions(json.record));
+      const data = Array.isArray(json.record)
+         ? json.record
+         : json.record?.record || [];
+      dispatch(setTransactions(data));
    } catch (e) {
       console.error("Ошибка при загрузке JSON:", e);
    }
