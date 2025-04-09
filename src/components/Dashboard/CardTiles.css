@@ -1,0 +1,81 @@
+/* src/components/Dashboard/CardTiles.css */
+
+.tiles-container {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+   margin-top: 1rem;
+}
+
+.tile {
+   flex: 1 1 200px;
+   position: relative;
+   display: flex;
+   align-items: center;
+   padding: 1.2rem 1.4rem;
+   color: #fff;
+   border-radius: 10px;
+   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+   cursor: pointer;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   min-width: 250px;
+   overflow: hidden;
+}
+
+.tile:hover {
+   transform: translateY(-4px);
+   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Полупрозрачный "блик" на фоне */
+.tile::before {
+   content: "";
+   position: absolute;
+   top: -50%;
+   left: -50%;
+   width: 200%;
+   height: 200%;
+   background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.3) 10%,
+      transparent 60%
+   );
+   transform: translate(50%, 50%) rotate(45deg);
+   opacity: 0.2;
+}
+
+/* Зона иконки */
+.tile-icon {
+   font-size: 2rem;
+   margin-right: 1rem;
+   flex-shrink: 0;
+   z-index: 1; /* чтобы не перекрывалось бликом */
+}
+
+/* Зона текста */
+.tile-info {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   z-index: 1;
+}
+
+.tile-info h3 {
+   margin: 0;
+   font-size: 0.95rem;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   opacity: 0.9;
+}
+
+.tile-main-value {
+   font-size: 1.5rem;
+   font-weight: bold;
+   margin: 0.4rem 0;
+   line-height: 1.2;
+}
+
+.tile-sub-value {
+   font-size: 0.85rem;
+   opacity: 0.85;
+}

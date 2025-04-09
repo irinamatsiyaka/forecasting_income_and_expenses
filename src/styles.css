@@ -1,0 +1,67 @@
+body {
+   margin: 0;
+   font-family: Arial, sans-serif;
+   background-color: #f7f7f7;
+}
+
+.navbar {
+   background-color: #333;
+   padding: 0.5rem 1rem;
+}
+
+.navbar ul {
+   list-style: none;
+   display: flex;
+   gap: 1rem;
+   margin: 0;
+   padding: 0;
+}
+
+.navbar li {
+   display: inline;
+}
+
+.navbar a {
+   color: #fff;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.navbar a:hover {
+   text-decoration: underline;
+}
+
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 1rem;
+}
+
+.dashboard-grid {
+   display: flex;
+   gap: 1rem;
+}
+
+.dashboard-card {
+   background-color: #fff;
+   padding: 1rem;
+   border: 1px solid #ddd;
+   flex: 1;
+   text-align: center;
+}
+
+.transaction-form,
+.transaction-list {
+   background-color: #fff;
+   padding: 1rem;
+   border: 1px solid #ddd;
+   margin-bottom: 1rem;
+}
+
+.forecast-chart,
+.analytics-chart {
+   background-color: #fff;
+   padding: 1rem;
+   border: 1px solid #ddd;
+   margin-bottom: 1rem;
+}
