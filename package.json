@@ -23,6 +23,8 @@
       "web-vitals": "^2.1.4"
    },
    "scripts": {
+      "prestart": "node scripts/fetch-json.js",
+      "prebuild": "node scripts/fetch-json.js",
       "start": "craco start",
       "build": "craco build",
       "test": "craco test"

@@ -1,5 +1,7 @@
-import React, { useMemo, useEffect, useState } from "react";
+// src/pages/AdvancedAnalyticsPage.jsx
+import React, { useMemo } from "react";
 import Plot from "react-plotly.js";
+import transactions from "../data/defaultTransactions.json";
 import {
    getRealAndPlannedBalances,
    groupExpensesByCategory,
@@ -8,28 +10,14 @@ import {
 } from "../utils/analyticsUtils";
 
 const AdvancedAnalyticsPage = () => {
-   const [transactions, setTransactions] = useState([]);
-
-   const fetchData = () => {
-      fetch("https://api.jsonbin.io/v3/qs/67f6ee7b8a456b796685ffd5")
-         .then((res) => res.json())
-         .then((json) => {
-            const data = Array.isArray(json.record)
-               ? json.record
-               : json.record?.record || [];
-            setTransactions(data);
-         });
-   };
-
-   useEffect(() => {
-      fetchData();
-   }, []);
-
+   // Получаем реальные и плановые транзакции и рассчитываем балансы
    const { realBalances, plannedBalances } = useMemo(
       () => getRealAndPlannedBalances(transactions),
-      [transactions]
+      []
    );
 
+   // Корректируем плановые балансы – если их начало отличается от последнего реального баланса,
+   // смещаем их так, чтобы первый пункт зеленого графика совпадал с последним значением синего.
    const adjustedPlannedBalances = useMemo(() => {
       if (!plannedBalances.length) return [];
       const lastReal = realBalances.length
@@ -42,6 +30,7 @@ const AdvancedAnalyticsPage = () => {
       }));
    }, [plannedBalances, realBalances]);
 
+   // Трейс для реального баланса (синий график)
    const realBalanceTrace = {
       x: realBalances.map((item) => item.date),
       y: realBalances.map((item) => item.budget),
@@ -50,6 +39,7 @@ const AdvancedAnalyticsPage = () => {
       name: "Real Balance",
    };
 
+   // Трейс для планового баланса (зелёный график)
    const plannedBalanceTrace = {
       x: adjustedPlannedBalances.map((item) => item.date),
       y: adjustedPlannedBalances.map((item) => item.budget),
@@ -58,6 +48,7 @@ const AdvancedAnalyticsPage = () => {
       name: "Planned Balance",
    };
 
+   // Группировка расходов по категориям для бюджета vs. actual spending
    const categoriesBudgetArray = useMemo(
       () => groupExpensesByCategory(transactions),
       [transactions]
@@ -75,6 +66,7 @@ const AdvancedAnalyticsPage = () => {
       type: "bar",
    };
 
+   // Группируем реальные расходы по категориям
    const realExpensesByCategory = useMemo(
       () => groupRealExpensesByCategory(transactions),
       [transactions]
@@ -85,6 +77,7 @@ const AdvancedAnalyticsPage = () => {
       type: "bar",
    };
 
+   // Группируем доходы по описанию
    const incomeByDescription = useMemo(
       () => groupIncomeByDescription(transactions),
       [transactions]
@@ -99,10 +92,7 @@ const AdvancedAnalyticsPage = () => {
       <div style={{ padding: "1rem" }}>
          <h1>Advanced Analytics (Real JSON Data)</h1>
 
-         <button onClick={fetchData} style={{ marginBottom: "1rem" }}>
-            🔄 Обновить данные
-         </button>
-
+         {/* 1) Балансы: Real vs. Planned */}
          <h2>Balances Over Time</h2>
          <Plot
             data={[realBalanceTrace, plannedBalanceTrace]}
@@ -113,6 +103,7 @@ const AdvancedAnalyticsPage = () => {
             }}
          />
 
+         {/* 2) Budgets vs. Actual Spending (по категориям расходов) */}
          <h2>Budgets vs. Actual Spending (By Category)</h2>
          <Plot
             data={[budgetTraceActual, budgetTracePlanned]}
@@ -124,6 +115,7 @@ const AdvancedAnalyticsPage = () => {
             }}
          />
 
+         {/* 3) Расходы по категориям (только реальные) */}
          <h2>Real Expenses by Category</h2>
          <Plot
             data={[catTrace]}
@@ -134,6 +126,7 @@ const AdvancedAnalyticsPage = () => {
             }}
          />
 
+         {/* 4) Piggy Banks (Stacked) – Заглушка */}
          <h2>Piggy Banks</h2>
          <Plot
             data={[
@@ -145,7 +138,7 @@ const AdvancedAnalyticsPage = () => {
                },
                {
                   x: ["New couch", "New phone", "New camera"],
-                  y: [600, 167, 735],
+                  y: [800 - 200, 500 - 333, 735],
                   name: "Remaining",
                   type: "bar",
                },
@@ -158,10 +151,15 @@ const AdvancedAnalyticsPage = () => {
             }}
          />
 
+         {/* 5) Revenue Accounts (Sources of Income) */}
          <h2>Income by Description</h2>
          <Plot
             data={[revenueTrace]}
-            layout={{ title: "Real Income Sources", width: 700, height: 400 }}
+            layout={{
+               title: "Real Income Sources",
+               width: 700,
+               height: 400,
+            }}
          />
       </div>
    );

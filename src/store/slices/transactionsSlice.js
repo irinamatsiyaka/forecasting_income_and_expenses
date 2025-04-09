@@ -1,22 +1,12 @@
+// src/store/slices/transactionsSlice.js
 import { createSlice } from "@reduxjs/toolkit";
+import { loadTransactions } from "../../utils/localStorage";
+import defaultTransactions from "../../data/defaultTransactions.json";
+
+const initialTransactions = loadTransactions() || defaultTransactions;
 
 const initialState = {
-   all: [],
-};
-
-export const fetchTransactionsFromJsonbin = () => async (dispatch) => {
-   try {
-      const res = await fetch(
-         "https://api.jsonbin.io/v3/qs/67f6ee7b8a456b796685ffd5"
-      );
-      const json = await res.json();
-      const data = Array.isArray(json.record)
-         ? json.record
-         : json.record?.record || [];
-      dispatch(setTransactions(data));
-   } catch (e) {
-      console.error("Ошибка при загрузке JSON:", e);
-   }
+   all: initialTransactions,
 };
 
 const transactionsSlice = createSlice({
