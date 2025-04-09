@@ -1,442 +1,442 @@
 [
-   {
-      "id": 1,
-      "description": "Salary (Jan)",
-      "date": "2025-01-01",
-      "amount": 2600,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Income"
-   },
-   {
-      "id": 2,
-      "description": "Rent Payment (Jan)",
-      "date": "2025-01-03",
-      "amount": 1025,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Housing"
-   },
-   {
-      "id": 3,
-      "description": "Groceries (Jan)",
-      "date": "2025-01-05",
-      "amount": 145,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 4,
-      "description": "Electricity Bill (Jan)",
-      "date": "2025-01-07",
-      "amount": 95,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 5,
-      "description": "Internet Bill (Jan)",
-      "date": "2025-01-08",
-      "amount": 48,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 6,
-      "description": "Freelance Project (Jan)",
-      "date": "2025-01-10",
-      "amount": 810,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   },
-   {
-      "id": 7,
-      "description": "Dining Out (Jan)",
-      "date": "2025-01-12",
-      "amount": 65,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 8,
-      "description": "Coffee (Jan)",
-      "date": "2025-01-14",
-      "amount": 12,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 9,
-      "description": "Car Maintenance (Jan)",
-      "date": "2025-01-16",
-      "amount": 205,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Transport"
-   },
-   {
-      "id": 10,
-      "description": "Bonus (Jan)",
-      "date": "2025-01-20",
-      "amount": 350,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   },
-   {
-      "id": 11,
-      "description": "Salary (Feb)",
-      "date": "2025-02-01",
-      "amount": 2600,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Income"
-   },
-   {
-      "id": 12,
-      "description": "Rent Payment (Feb)",
-      "date": "2025-02-03",
-      "amount": 1000,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Housing"
-   },
-   {
-      "id": 13,
-      "description": "Groceries (Feb)",
-      "date": "2025-02-05",
-      "amount": 158,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 14,
-      "description": "Electricity Bill (Feb)",
-      "date": "2025-02-06",
-      "amount": 97,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 15,
-      "description": "Internet Bill (Feb)",
-      "date": "2025-02-07",
-      "amount": 52,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 16,
-      "description": "Freelance Project (Feb)",
-      "date": "2025-02-10",
-      "amount": 720,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   },
-   {
-      "id": 17,
-      "description": "Dining Out (Feb)",
-      "date": "2025-02-12",
-      "amount": 68,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 18,
-      "description": "Coffee (Feb)",
-      "date": "2025-02-14",
-      "amount": 14,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 19,
-      "description": "Car Maintenance (Feb)",
-      "date": "2025-02-16",
-      "amount": 190,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Transport"
-   },
-   {
-      "id": 20,
-      "description": "Gift from Parents (Feb)",
-      "date": "2025-02-20",
-      "amount": 210,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   },
-   {
-      "id": 21,
-      "description": "Medical Expense (Feb)",
-      "date": "2025-02-18",
-      "amount": 500,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Health"
-   },
-   {
-      "id": 22,
-      "description": "Car Repair (Feb)",
-      "date": "2025-02-19",
-      "amount": 800,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Transport"
-   },
-   {
-      "id": 23,
-      "description": "Unexpected Groceries (Feb)",
-      "date": "2025-02-21",
-      "amount": 200,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 24,
-      "description": "Vacation Expense (Feb)",
-      "date": "2025-02-25",
-      "amount": 600,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Leisure"
-   },
-   {
-      "id": 25,
-      "description": "Salary (Mar)",
-      "date": "2025-03-01",
-      "amount": 3000,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Income"
-   },
-   {
-      "id": 26,
-      "description": "Rent Payment (Mar)",
-      "date": "2025-03-03",
-      "amount": 1000,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Housing"
-   },
-   {
-      "id": 27,
-      "description": "Groceries (Mar)",
-      "date": "2025-03-05",
-      "amount": 153,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 28,
-      "description": "Electricity Bill (Mar)",
-      "date": "2025-03-06",
-      "amount": 105,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 29,
-      "description": "Internet Bill (Mar)",
-      "date": "2025-03-07",
-      "amount": 50,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 30,
-      "description": "Freelance Project (Mar)",
-      "date": "2025-03-10",
-      "amount": 820,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   },
-   {
-      "id": 31,
-      "description": "Dining Out (Mar)",
-      "date": "2025-03-12",
-      "amount": 62,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 32,
-      "description": "Coffee (Mar)",
-      "date": "2025-03-14",
-      "amount": 11,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 33,
-      "description": "Car Maintenance (Mar)",
-      "date": "2025-03-16",
-      "amount": 210,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Transport"
-   },
-   {
-      "id": 34,
-      "description": "Bonus (Mar)",
-      "date": "2025-03-20",
-      "amount": 500,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   },
-   {
-      "id": 35,
-      "description": "Salary (Apr)",
-      "date": "2025-04-01",
-      "amount": 3000,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Income"
-   },
-   {
-      "id": 36,
-      "description": "Rent Payment (Apr)",
-      "date": "2025-04-03",
-      "amount": 1000,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Housing"
-   },
-   {
-      "id": 37,
-      "description": "Groceries (Apr)",
-      "date": "2025-04-05",
-      "amount": 160,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 38,
-      "description": "Electricity Bill (Apr)",
-      "date": "2025-04-06",
-      "amount": 102,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 39,
-      "description": "Internet Bill (Apr)",
-      "date": "2025-04-07",
-      "amount": 50,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "monthly",
-      "category": "Utilities"
-   },
-   {
-      "id": 40,
-      "description": "Freelance Project (Apr)",
-      "date": "2025-04-10",
-      "amount": 910,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   },
-   {
-      "id": 41,
-      "description": "Dining Out (Apr)",
-      "date": "2025-04-12",
-      "amount": 70,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 42,
-      "description": "Coffee (Apr)",
-      "date": "2025-04-14",
-      "amount": 13,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Food"
-   },
-   {
-      "id": 43,
-      "description": "Car Maintenance (Apr)",
-      "date": "2025-04-16",
-      "amount": 220,
-      "type": "expense",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Transport"
-   },
-   {
-      "id": 44,
-      "description": "Bonus (Apr)",
-      "date": "2025-04-20",
-      "amount": 600,
-      "type": "income",
-      "isPlanned": false,
-      "periodicity": "once",
-      "category": "Income"
-   }
+  {
+    "id": 1,
+    "description": "Salary (Jan)",
+    "date": "2025-01-01",
+    "amount": 2600,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Income"
+  },
+  {
+    "id": 2,
+    "description": "Rent Payment (Jan)",
+    "date": "2025-01-03",
+    "amount": 1025,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Housing"
+  },
+  {
+    "id": 3,
+    "description": "Groceries (Jan)",
+    "date": "2025-01-05",
+    "amount": 145,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 4,
+    "description": "Electricity Bill (Jan)",
+    "date": "2025-01-07",
+    "amount": 95,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 5,
+    "description": "Internet Bill (Jan)",
+    "date": "2025-01-08",
+    "amount": 48,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 6,
+    "description": "Freelance Project (Jan)",
+    "date": "2025-01-10",
+    "amount": 810,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  },
+  {
+    "id": 7,
+    "description": "Dining Out (Jan)",
+    "date": "2025-01-12",
+    "amount": 65,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 8,
+    "description": "Coffee (Jan)",
+    "date": "2025-01-14",
+    "amount": 12,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 9,
+    "description": "Car Maintenance (Jan)",
+    "date": "2025-01-16",
+    "amount": 205,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Transport"
+  },
+  {
+    "id": 10,
+    "description": "Bonus (Jan)",
+    "date": "2025-01-20",
+    "amount": 350,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  },
+  {
+    "id": 11,
+    "description": "Salary (Feb)",
+    "date": "2025-02-01",
+    "amount": 2600,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Income"
+  },
+  {
+    "id": 12,
+    "description": "Rent Payment (Feb)",
+    "date": "2025-02-03",
+    "amount": 1000,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Housing"
+  },
+  {
+    "id": 13,
+    "description": "Groceries (Feb)",
+    "date": "2025-02-05",
+    "amount": 158,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 14,
+    "description": "Electricity Bill (Feb)",
+    "date": "2025-02-06",
+    "amount": 97,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 15,
+    "description": "Internet Bill (Feb)",
+    "date": "2025-02-07",
+    "amount": 52,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 16,
+    "description": "Freelance Project (Feb)",
+    "date": "2025-02-10",
+    "amount": 720,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  },
+  {
+    "id": 17,
+    "description": "Dining Out (Feb)",
+    "date": "2025-02-12",
+    "amount": 68,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 18,
+    "description": "Coffee (Feb)",
+    "date": "2025-02-14",
+    "amount": 14,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 19,
+    "description": "Car Maintenance (Feb)",
+    "date": "2025-02-16",
+    "amount": 190,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Transport"
+  },
+  {
+    "id": 20,
+    "description": "Gift from Parents (Feb)",
+    "date": "2025-02-20",
+    "amount": 210,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  },
+  {
+    "id": 21,
+    "description": "Medical Expense (Feb)",
+    "date": "2025-02-18",
+    "amount": 500,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Health"
+  },
+  {
+    "id": 22,
+    "description": "Car Repair (Feb)",
+    "date": "2025-02-19",
+    "amount": 800,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Transport"
+  },
+  {
+    "id": 23,
+    "description": "Unexpected Groceries (Feb)",
+    "date": "2025-02-21",
+    "amount": 200,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 24,
+    "description": "Vacation Expense (Feb)",
+    "date": "2025-02-25",
+    "amount": 600,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Leisure"
+  },
+  {
+    "id": 25,
+    "description": "Salary (Mar)",
+    "date": "2025-03-01",
+    "amount": 3000,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Income"
+  },
+  {
+    "id": 26,
+    "description": "Rent Payment (Mar)",
+    "date": "2025-03-03",
+    "amount": 1000,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Housing"
+  },
+  {
+    "id": 27,
+    "description": "Groceries (Mar)",
+    "date": "2025-03-05",
+    "amount": 153,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 28,
+    "description": "Electricity Bill (Mar)",
+    "date": "2025-03-06",
+    "amount": 105,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 29,
+    "description": "Internet Bill (Mar)",
+    "date": "2025-03-07",
+    "amount": 50,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 30,
+    "description": "Freelance Project (Mar)",
+    "date": "2025-03-10",
+    "amount": 820,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  },
+  {
+    "id": 31,
+    "description": "Dining Out (Mar)",
+    "date": "2025-03-12",
+    "amount": 62,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 32,
+    "description": "Coffee (Mar)",
+    "date": "2025-03-14",
+    "amount": 11,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 33,
+    "description": "Car Maintenance (Mar)",
+    "date": "2025-03-16",
+    "amount": 210,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Transport"
+  },
+  {
+    "id": 34,
+    "description": "Bonus (Mar)",
+    "date": "2025-03-20",
+    "amount": 500,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  },
+  {
+    "id": 35,
+    "description": "Salary (Apr)",
+    "date": "2025-04-01",
+    "amount": 3000,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Income"
+  },
+  {
+    "id": 36,
+    "description": "Rent Payment (Apr)",
+    "date": "2025-04-03",
+    "amount": 1000,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Housing"
+  },
+  {
+    "id": 37,
+    "description": "Groceries (Apr)",
+    "date": "2025-04-05",
+    "amount": 160,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 38,
+    "description": "Electricity Bill (Apr)",
+    "date": "2025-04-06",
+    "amount": 102,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 39,
+    "description": "Internet Bill (Apr)",
+    "date": "2025-04-07",
+    "amount": 50,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "monthly",
+    "category": "Utilities"
+  },
+  {
+    "id": 40,
+    "description": "Freelance Project (Apr)",
+    "date": "2025-04-10",
+    "amount": 910,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  },
+  {
+    "id": 41,
+    "description": "Dining Out (Apr)",
+    "date": "2025-04-12",
+    "amount": 70,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 42,
+    "description": "Coffee (Apr)",
+    "date": "2025-04-14",
+    "amount": 13,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Food"
+  },
+  {
+    "id": 43,
+    "description": "Car Maintenance (Apr)",
+    "date": "2025-04-16",
+    "amount": 220,
+    "type": "expense",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Transport"
+  },
+  {
+    "id": 44,
+    "description": "Bonus (Apr)",
+    "date": "2025-04-20",
+    "amount": 600,
+    "type": "income",
+    "isPlanned": false,
+    "periodicity": "once",
+    "category": "Income"
+  }
 ]
