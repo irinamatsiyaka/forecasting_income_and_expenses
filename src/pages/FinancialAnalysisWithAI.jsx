@@ -1,22 +1,21 @@
-// src/pages/FinancialAnalysisWithAI.jsx
-import React, { useState } from "react";
-import defaultTransactions from "../data/defaultTransactions.json";
+import React, { useState, useEffect } from "react";
 import { cohereGenerateText } from "../ai/cohereApi";
 
-/**
- * Компонент для демонстрации анализа финансов (JSON-файл) через Cohere:
- * - Показывает сам JSON (как часть промпта)
- * - Отправляет на Cohere запрос, получает "вердикт"
- */
 const FinancialAnalysisWithAI = () => {
    const [aiResult, setAiResult] = useState("");
    const [loading, setLoading] = useState(false);
+   const [data, setData] = useState([]);
 
-   // Формируем промпт, который сразу содержит JSON:
+   useEffect(() => {
+      fetch("https://api.jsonbin.io/v3/qs/67f6ee7b8a456b796685ffd5")
+         .then((res) => res.json())
+         .then((json) => setData(json.record));
+   }, []);
+
    const prompt = `
 Вот JSON-файл с доходами и расходами пользователя:
 
-${JSON.stringify(defaultTransactions, null, 2)}
+${JSON.stringify(data, null, 2)}
 
 Пожалуйста, проанализируй эти финансовые данные и дай рекомендации:
 1) Как можно сократить расходы?
@@ -26,7 +25,6 @@ ${JSON.stringify(defaultTransactions, null, 2)}
 Дай детальный ответ.
 `;
 
-   // Функция вызова Cohere
    async function handleAnalyze() {
       setLoading(true);
       setAiResult("");
