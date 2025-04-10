@@ -1,4 +1,3 @@
-// src/pages/AnalyticsPage.jsx
 import React, { useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import Plot from "react-plotly.js";
@@ -9,23 +8,20 @@ import { groupExpensesByCategory } from "../utils/analyticsUtils";
 const AnalyticsPage = () => {
    const allTransactions = useSelector((state) => state.transactions.all);
 
-   // Дата «среза» для исторических данных (training)
    const [cutOffDate, setCutOffDate] = useState("2025-04-06");
 
-   // Исторические транзакции (до cutOffDate, реальные)
    const trainingTx = useMemo(
       () =>
          allTransactions.filter((tx) => tx.date <= cutOffDate && !tx.isPlanned),
       [allTransactions, cutOffDate]
    );
 
-   // Будущие транзакции (после cutOffDate)
+   // будущие транзакции (после cutOffDate)
    const testTx = useMemo(
       () => allTransactions.filter((tx) => tx.date > cutOffDate),
       [allTransactions, cutOffDate]
    );
 
-   // Вычисляем балансы
    const trainingBalances = useMemo(
       () => computeDailyBalances(trainingTx, false),
       [trainingTx]
@@ -35,7 +31,6 @@ const AnalyticsPage = () => {
       [testTx]
    );
 
-   // Корректируем testBalances так, чтобы их первое значение совпадало с последним значением trainingBalances
    const adjustedTestBalances = useMemo(() => {
       if (!testBalances.length) return [];
       const lastTraining =
@@ -49,7 +44,7 @@ const AnalyticsPage = () => {
       }));
    }, [testBalances, trainingBalances]);
 
-   // Трейс для исторических данных (синий)
+   // history (blue)
    const trainingTrace = {
       x: trainingBalances.map((d) => d.date),
       y: trainingBalances.map((d) => d.budget),
@@ -59,7 +54,7 @@ const AnalyticsPage = () => {
       marker: { color: "blue" },
    };
 
-   // Трейс для будущих данных (зелёный)
+   // future
    const testTrace = {
       x: adjustedTestBalances.map((d) => d.date),
       y: adjustedTestBalances.map((d) => d.budget),
@@ -69,7 +64,7 @@ const AnalyticsPage = () => {
       marker: { color: "green" },
    };
 
-   // Группировка расходов по категориям для диаграммы Actual vs. Planned
+   // Actual vs Planned
    const categoriesBudgetArray = useMemo(
       () => groupExpensesByCategory(allTransactions),
       [allTransactions]
@@ -87,14 +82,11 @@ const AnalyticsPage = () => {
       type: "bar",
    };
 
-   // --- Новая диаграмма: Monthly Income vs. Expense + Cumulative Difference ---
-   // Динамически агрегируем транзакции по месяцам
+   //Monthly Income vs. Expense + Cumulative Difference
    const monthlyData = useMemo(() => {
-      // Группируем по ключу "YYYY-MM"
       const groups = {};
       allTransactions.forEach((tx) => {
          const dateObj = new Date(tx.date);
-         // Используем год и месяц (месяц в диапазоне 01-12)
          const key =
             dateObj.getFullYear() +
             "-" +
@@ -108,9 +100,7 @@ const AnalyticsPage = () => {
             groups[key].expense += tx.amount;
          }
       });
-      // Сортируем ключи и создаём массив с данными
       const sortedKeys = Object.keys(groups).sort();
-      // Преобразуем ключ в короткое название месяца, если необходимо
       const monthNames = [
          "Jan",
          "Feb",
@@ -136,7 +126,6 @@ const AnalyticsPage = () => {
       });
    }, [allTransactions]);
 
-   // Вычисляем накопленную разницу (cumulative difference) по месяцам
    const cumulativeDifference = useMemo(() => {
       let cum = 0;
       return monthlyData.map((data) => {
@@ -145,7 +134,6 @@ const AnalyticsPage = () => {
       });
    }, [monthlyData]);
 
-   // Формируем данные для комбинированной диаграммы
    const dualAxisData = [
       {
          x: monthlyData.map((d) => d.month),
@@ -168,7 +156,6 @@ const AnalyticsPage = () => {
       },
    ];
 
-   // Макет для комбинированной диаграммы – используем одну ось для всех данных
    const dualAxisLayout = {
       title: "Monthly Income vs. Expense + Cumulative Difference",
       barmode: "group",
@@ -194,7 +181,6 @@ const AnalyticsPage = () => {
             />
          </div>
 
-         {/* График балансов: исторические (синий) и будущие (зелёный) */}
          <Plot
             data={[trainingTrace, testTrace]}
             layout={{
@@ -204,7 +190,6 @@ const AnalyticsPage = () => {
             }}
          />
 
-         {/* График Actual vs. Planned по категориям расходов */}
          <Plot
             data={[budgetTraceActual, budgetTracePlanned]}
             layout={{
@@ -215,10 +200,8 @@ const AnalyticsPage = () => {
             }}
          />
 
-         {/* Пример круговой диаграммы */}
          <BudgetPieChart />
 
-         {/* Новая комбинированная диаграмма по месяцам */}
          <Plot data={dualAxisData} layout={dualAxisLayout} />
       </div>
    );

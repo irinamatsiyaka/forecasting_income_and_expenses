@@ -1,35 +1,17 @@
-// src/utils/budgetUtils.js
-
 import Arima from "arima";
 
-/**
- * calculateTotalIncome – Считает сумму всех реальных (isPlanned=false) доходов.
- */
 export const calculateTotalIncome = (transactions) => {
    return transactions
       .filter((t) => !t.isPlanned && t.type === "income")
       .reduce((sum, t) => sum + t.amount, 0);
 };
 
-/**
- * calculateTotalExpense – Считает сумму всех реальных (isPlanned=false) расходов.
- */
 export const calculateTotalExpense = (transactions) => {
    return transactions
       .filter((t) => !t.isPlanned && t.type === "expense")
       .reduce((sum, t) => sum + t.amount, 0);
 };
 
-/**
- * computeDailyBalances – Вычисляет баланс для каждого дня по формуле (1):
- *   B(t) = B(t-1) + ∑(доходы) - ∑(расходы)
- *
- * Если includePlanned=true, учитываются плановые транзакции.
- *
- * @param {Array} transactions - Массив транзакций.
- * @param {Boolean} includePlanned - Если true, включаются плановые.
- * @returns {Array} - [{ date, budget }]
- */
 export const computeDailyBalances = (transactions, includePlanned = false) => {
    const filtered = includePlanned
       ? transactions
@@ -66,15 +48,6 @@ export const computeDailyBalances = (transactions, includePlanned = false) => {
    return result;
 };
 
-/* ===============================
-   Дополнительные функции для обработки данных
-   =============================== */
-
-/**
- * fillMissingBalances – Заполнение пропусков.
- * Если для какого-то дня значение budget отсутствует,
- * заполняем его средним соседних значений: X(t) = (X(t-1)+X(t+1))/2.
- */
 export function fillMissingBalances(dailyArray) {
    const arr = [...dailyArray];
    for (let i = 0; i < arr.length; i++) {
@@ -93,9 +66,6 @@ export function fillMissingBalances(dailyArray) {
    return arr;
 }
 
-/**
- * removeOutliers – Удаление выбросов (mean ± 5*std).
- */
 export function removeOutliers(dailyArray) {
    const arr = [...dailyArray];
    const values = arr.map((d) => d.budget);
@@ -106,9 +76,6 @@ export function removeOutliers(dailyArray) {
    );
 }
 
-/**
- * makeDifferences – Вычисляет разности: Y(t)=X(t)-X(t-1).
- */
 export function makeDifferences(dailyArray) {
    if (dailyArray.length < 2) return dailyArray;
    const res = [];
@@ -123,9 +90,6 @@ export function makeDifferences(dailyArray) {
    return res;
 }
 
-/**
- * pearsonCorrelation – Вычисляет коэффициент корреляции Пирсона между двумя массивами.
- */
 export function pearsonCorrelation(arrX, arrY) {
    if (arrX.length !== arrY.length) return 0;
    const n = arrX.length;
@@ -144,20 +108,6 @@ export function pearsonCorrelation(arrX, arrY) {
    return num / Math.sqrt(den1 * den2);
 }
 
-/* ===========================================================
-   Сезонный прогноз
-   =========================================================== */
-
-/**
- * forecastSarima – Прогнозирование с сезонным дифференцированием (SARIMA) на один блок (chunk).
- * Рассчитывает сезонные разности с периодом m и восстанавливает прогноз:
- * X[t] = X[t-m] + Y_hat[t]. В этом варианте не добавляется дополнительный тренд.
- *
- * @param {Array} dailyArray - Массив объектов [{ date, budget }, ...]
- * @param {number} steps - Количество дней для прогноза (один блок).
- * @param {number} m - Сезонный период (например, 30).
- * @returns {Array} - Массив объектов [{ date, budget }, ...]
- */
 export function forecastSarima(dailyArray, steps = 30, m = 30) {
    if (dailyArray.length < m + 1) return [];
    const sorted = [...dailyArray].sort(
@@ -165,13 +115,11 @@ export function forecastSarima(dailyArray, steps = 30, m = 30) {
    );
    const values = sorted.map((d) => d.budget);
 
-   // Вычисляем сезонные разности: diff[t] = X[t] - X[t-m] для t = m...N-1
    const seasonalDiff = [];
    for (let i = m; i < values.length; i++) {
       seasonalDiff.push(values[i] - values[i - m]);
    }
 
-   // Обучаем AR модель на сезонных разностях (p=1, d=0, q=0)
    const arima = new Arima({
       p: 1,
       d: 0,
@@ -185,7 +133,6 @@ export function forecastSarima(dailyArray, steps = 30, m = 30) {
       predDiff = Array(steps).fill(0);
    }
 
-   // Восстанавливаем прогнозные значения: X[t] = X[t-m] + diff[t]
    const result = [];
    const N = values.length;
    const lastDate = new Date(sorted[N - 1].date);
@@ -203,17 +150,6 @@ export function forecastSarima(dailyArray, steps = 30, m = 30) {
    return result;
 }
 
-/**
- * forecastSarimaIterative – Итеративный сезонный прогноз на totalSteps дней.
- * Делит прогноз на блоки (chunks) по chunkSize дней и для каждого блока обучает модель
- * на базе текущего ряда (фактические данные + уже спрогнозированные значения).
- *
- * @param {Array} dailyArray - [{ date, budget }, ...] (отсортированный ряд)
- * @param {number} totalSteps - Общее число дней для прогноза.
- * @param {number} chunkSize - Размер одного блока (например, 30).
- * @param {number} m - Сезонный период (например, 30).
- * @returns {Array} - Итоговый прогноз [{ date, budget }, ...] на totalSteps дней.
- */
 export function forecastSarimaIterative(
    dailyArray,
    totalSteps = 60,
@@ -228,10 +164,8 @@ export function forecastSarimaIterative(
    let stepsLeft = totalSteps;
    const finalForecast = [];
 
-   // Итеративно прогнозируем каждый блок
    while (stepsLeft > 0) {
       const currentChunk = Math.min(stepsLeft, chunkSize);
-      // Прогнозируем текущий блок с помощью forecastSarimaOneChunk
       const chunkPred = forecastSarimaOneChunk(baseValues, currentChunk, m);
       for (let i = 0; i < currentChunk; i++) {
          const futureDate = new Date(lastDate.getTime() + 86400000 * (i + 1));
@@ -247,15 +181,6 @@ export function forecastSarimaIterative(
    return finalForecast;
 }
 
-/**
- * forecastSarimaOneChunk – Локальная функция для прогнозирования одного блока (chunk) дней.
- * Использует AR модель на сезонных разностях.
- *
- * @param {Array<number>} baseValues - Исходный ряд чисел (budget).
- * @param {number} steps - Количество дней в блоке.
- * @param {number} m - Сезонный период.
- * @returns {Array<number>} - Массив спрогнозированных значений длиной steps.
- */
 function forecastSarimaOneChunk(baseValues, steps, m = 30) {
    if (baseValues.length < m + 1) {
       const lastVal = baseValues[baseValues.length - 1] || 0;
@@ -287,14 +212,6 @@ function forecastSarimaOneChunk(baseValues, steps, m = 30) {
    return resultVals;
 }
 
-/**
- * forecastArima – Простой прогноз ARIMA без сезонности.
- * Использует модель ARIMA (p=1, d=0, q=0). Если NaN, заменяет на последнее известное значение.
- *
- * @param {Array} dailyArray - [{ date, budget }, ...]
- * @param {number} steps - Количество дней для прогноза.
- * @returns {Array} - [{ date, budget }, ...]
- */
 export function forecastArima(dailyArray, steps = 7) {
    if (dailyArray.length < 2) return [];
    const sorted = [...dailyArray].sort(
@@ -338,7 +255,6 @@ export function forecastArima(dailyArray, steps = 7) {
    return result;
 }
 
-// Вспомогательные функции
 function getMean(arr) {
    const s = arr.reduce((a, b) => a + b, 0);
    return s / arr.length;

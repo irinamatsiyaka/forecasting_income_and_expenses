@@ -1,4 +1,3 @@
-// src/components/BudgetPieChart.jsx
 import React from "react";
 import Plot from "react-plotly.js";
 import { useSelector } from "react-redux";
@@ -6,12 +5,11 @@ import { useSelector } from "react-redux";
 const BudgetPieChart = () => {
    const transactions = useSelector((state) => state.transactions.all);
 
-   // Фильтруем только фактические расходы
+   //  только фактические расходы
    const expenseTransactions = transactions.filter(
       (tx) => tx.type === "expense" && !tx.isPlanned
    );
 
-   // Агрегируем расходы по категориям, заменяя пустые значения на 'Other'
    const categoryTotals = expenseTransactions.reduce((acc, tx) => {
       const category =
          tx.category && tx.category.trim() !== "" ? tx.category : "Other";

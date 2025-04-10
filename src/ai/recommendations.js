@@ -1,5 +1,3 @@
-// src/ai/recommendations.js
-
 export function generateAIRecommendations(
    realIncome,
    realExpense,

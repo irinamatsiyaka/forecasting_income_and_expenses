@@ -1,4 +1,3 @@
-// src/store/slices/transactionsSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 import { loadTransactions } from "../../utils/localStorage";
 import defaultTransactions from "../../data/defaultTransactions.json";

@@ -1,4 +1,3 @@
-// src/utils/localStorage.js
 const STORAGE_KEY = "transactions";
 
 export const loadTransactions = () => {

@@ -1,4 +1,3 @@
-// src/pages/DashboardPage.jsx
 import React from "react";
 import { useSelector } from "react-redux";
 import CardTiles from "../components/Dashboard/CardTiles";
@@ -6,11 +5,9 @@ import CardTiles from "../components/Dashboard/CardTiles";
 const DashboardPage = () => {
    const transactions = useSelector((state) => state.transactions.all);
 
-   // Разделяем транзакции на реальные и плановые по флагу isPlanned
    const realNowTx = transactions.filter((tx) => !tx.isPlanned);
    const futureTx = transactions.filter((tx) => tx.isPlanned);
 
-   // 1) Реальные доходы и расходы (только реальные транзакции)
    const realIncome = realNowTx
       .filter((tx) => tx.type === "income")
       .reduce((sum, tx) => sum + tx.amount, 0);
@@ -19,10 +16,8 @@ const DashboardPage = () => {
       .filter((tx) => tx.type === "expense")
       .reduce((sum, tx) => sum + tx.amount, 0);
 
-   // Текущий баланс — это разница между реальными доходами и расходами
    const currentBalance = realIncome - realExpense;
 
-   // 2) Плановые доходы и расходы (все, у которых isPlanned === true)
    const futureIncome = futureTx
       .filter((tx) => tx.type === "income")
       .reduce((sum, tx) => sum + tx.amount, 0);
@@ -31,13 +26,11 @@ const DashboardPage = () => {
       .filter((tx) => tx.type === "expense")
       .reduce((sum, tx) => sum + tx.amount, 0);
 
-   // Чистая стоимость (с учётом будущего) = текущий баланс + (плановые доходы - плановые расходы)
    const netWorthProjected = currentBalance + (futureIncome - futureExpense);
 
-   // 3) Доход - Расход за март 2025 — фильтруем реальные транзакции по дате
    const realNowMarchTx = realNowTx.filter((tx) => {
       const d = new Date(tx.date);
-      return d.getFullYear() === 2025 && d.getMonth() === 2; // март (месяцы: 0 – январь)
+      return d.getFullYear() === 2025 && d.getMonth() === 2;
    });
    const inMarchIncome = realNowMarchTx
       .filter((tx) => tx.type === "income")
@@ -47,7 +40,6 @@ const DashboardPage = () => {
       .reduce((sum, tx) => sum + tx.amount, 0);
    const netInOutMarch = inMarchIncome - inMarchExpense;
 
-   // Формируем данные для карточек (tiles)
    const tilesData = [
       {
          gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",

@@ -1,4 +1,3 @@
-// src/pages/AdvancedForecastPage.jsx
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Plot from "react-plotly.js";
@@ -17,7 +16,7 @@ const AdvancedForecastPage = () => {
    const transactions = useSelector((state) => state.transactions.all);
    const [dailyData, setDailyData] = useState([]);
    const [forecastData, setForecastData] = useState([]);
-   const [forecastSteps, setForecastSteps] = useState(60); // Например, 60 дней
+   const [forecastSteps, setForecastSteps] = useState(60);
    const [useSeasonal, setUseSeasonal] = useState(true);
    const [useIterative, setUseIterative] = useState(true);
    const [recommendations, setRecommendations] = useState([]);
@@ -29,24 +28,21 @@ const AdvancedForecastPage = () => {
          return;
       }
 
-      // 1) Вычисляем ежедневный бюджет
       const computed = computeDailyBalances(transactions, false);
       if (!computed || computed.length === 0) {
          console.warn("computeDailyBalances вернул пустой массив");
          return;
       }
 
-      // 2) Заполняем пропуски
       const noMissing = fillMissingBalances(computed);
 
-      // 3) Удаляем выбросы
       let processedData = removeOutliers(noMissing);
       if (processedData.length === 0) {
          processedData = noMissing;
       }
       setDailyData(processedData);
 
-      // 4) Прогноз:
+      // Прогноз
       let preds = [];
       if (useSeasonal) {
          if (useIterative) {
@@ -71,13 +67,13 @@ const AdvancedForecastPage = () => {
       }
       setForecastData(preds);
 
-      // 5) Корреляция (пример)
+      // корреляция
       const factorX = processedData.map(() => Math.random() * 100);
       const factorY = processedData.map((d) => d.budget);
       const corr = pearsonCorrelation(factorX, factorY);
       setCorrelation(corr);
 
-      // 6) AI-рекомендации (упрощённо)
+      // ai
       const realIncome = transactions
          .filter((tx) => tx.type === "income" && !tx.isPlanned)
          .reduce((s, tx) => s + tx.amount, 0);

@@ -1,7 +1,4 @@
-// src/api/cohereApi.js
-
 export async function cohereGenerateText(prompt) {
-   // Получаем ключ из переменных окружения
    const apiKey = "ymwZR95ku6YBtNrrXLsPJz3UfQ15tjF7AdAH1tIO";
    if (!apiKey) {
       throw new Error(
@@ -9,16 +6,13 @@ export async function cohereGenerateText(prompt) {
       );
    }
 
-   // Эндпоинт Cohere для генерации
    const endpoint = "https://api.cohere.ai/v1/generate";
 
-   // Тело запроса (можно варьировать)
    const body = {
       model: "command-xlarge",
       prompt: prompt,
-      max_tokens: 5000, // Можно увеличить, если нужен большой ответ
-      temperature: 0.7, // Креативность
-      // Другие параметры: top_k, top_p, stop_sequences, и т.д. по документации
+      max_tokens: 5000, // ответ
+      temperature: 0.7, // креативность
    };
 
    const response = await fetch(endpoint, {

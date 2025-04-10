@@ -1,18 +1,12 @@
-// src/pages/FinancialAnalysisWithAI.jsx
 import React, { useState } from "react";
 import defaultTransactions from "../data/defaultTransactions.json";
 import { cohereGenerateText } from "../api/cohereApi";
 
-/**
- * Компонент для демонстрации анализа финансов (JSON-файл) через Cohere:
- * - Показывает сам JSON (как часть промпта)
- * - Отправляет на Cohere запрос, получает "вердикт"
- */
+
 const FinancialAnalysisWithAI = () => {
    const [aiResult, setAiResult] = useState("");
    const [loading, setLoading] = useState(false);
 
-   // Формируем промпт, который сразу содержит JSON:
    const prompt = `
 Вот JSON-файл с доходами и расходами пользователя:
 
@@ -48,7 +42,7 @@ ${JSON.stringify(defaultTransactions, null, 2)}
 
    return (
       <div style={{ padding: "1rem" }}>
-         <h1>Финансовый анализ (пример) через Cohere</h1>
+         <h1>Финансовый анализ через Cohere</h1>
 
          <h2>Промпт, который мы отправим в ИИ:</h2>
          <pre style={{ background: "#f0f0f0", padding: "1rem" }}>{prompt}</pre>

@@ -6,8 +6,7 @@ import TransactionsPage from "./pages/TransactionsPage";
 import AnalyticsPage from "./pages/AnalyticsPage";
 import SettingsPage from "./pages/SettingsPage";
 import "./styles.css";
-import AdvancedForecastPage from "./pages/AdvancedForecastPage"; // Новый маршрут
-// import CohereDemoPage from "./pages/CohereDemoPage";
+import AdvancedForecastPage from "./pages/AdvancedForecastPage";
 import FinancialAnalysisWithAI from "./pages/FinancialAnalysisWithAI";
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
                   path="/advanced-forecast"
                   element={<AdvancedForecastPage />}
                />
-               {/* <Route path="/cohere-demo" element={<CohereDemoPage />} /> */}
                <Route
                   path="/fin-analysis"
                   element={<FinancialAnalysisWithAI />}

@@ -1,6 +1,5 @@
-// src/components/Dashboard/CardTiles.jsx
 import React from "react";
-import "./CardTiles.css"; // стили карточек
+import "./CardTiles.css";
 
 const CardTiles = ({ tilesData }) => {
    return (
@@ -10,7 +9,7 @@ const CardTiles = ({ tilesData }) => {
                className="tile"
                key={index}
                style={{
-                  background: tile.gradient || "#0f0f0f", // фон по умолчанию, если нет tile.gradient
+                  background: tile.gradient || "#0f0f0f", 
                }}
             >
                <div className="tile-icon">

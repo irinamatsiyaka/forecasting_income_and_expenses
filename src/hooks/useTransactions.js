@@ -1,4 +1,3 @@
-//src/hooks/useTransactions
 import { useSelector, useDispatch } from "react-redux";
 import {
    addTransaction,
