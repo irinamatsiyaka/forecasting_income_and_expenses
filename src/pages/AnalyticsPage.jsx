@@ -10,7 +10,7 @@ const AnalyticsPage = () => {
    const allTransactions = useSelector((state) => state.transactions.all);
 
    // Дата «среза» для исторических данных (training)
-   const [cutOffDate, setCutOffDate] = useState("2025-03-20");
+   const [cutOffDate, setCutOffDate] = useState("2025-04-06");
 
    // Исторические транзакции (до cutOffDate, реальные)
    const trainingTx = useMemo(

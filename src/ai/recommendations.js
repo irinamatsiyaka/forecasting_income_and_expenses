@@ -1,10 +1,5 @@
 // src/ai/recommendations.js
 
-/**
- * На основе разницы доход/расход, выдаём простейшие рекомендации:
- * - если расходы сильно растут, советуем "сократить"
- * - если доходы растут, "можно накопить"
- */
 export function generateAIRecommendations(
    realIncome,
    realExpense,

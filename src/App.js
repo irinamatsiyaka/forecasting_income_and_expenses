@@ -4,7 +4,6 @@ import NavBar from "./components/common/NavBar";
 import DashboardPage from "./pages/DashboardPage";
 import TransactionsPage from "./pages/TransactionsPage";
 import AnalyticsPage from "./pages/AnalyticsPage";
-import ForecastPage from "./pages/ForecastPage";
 import SettingsPage from "./pages/SettingsPage";
 import "./styles.css";
 import AdvancedForecastPage from "./pages/AdvancedForecastPage"; // Новый маршрут
@@ -20,7 +19,6 @@ function App() {
                <Route path="/" element={<DashboardPage />} />
                <Route path="/transactions" element={<TransactionsPage />} />
                <Route path="/analytics" element={<AnalyticsPage />} />
-               <Route path="/forecast" element={<ForecastPage />} />
                <Route path="/settings" element={<SettingsPage />} />
 
                <Route

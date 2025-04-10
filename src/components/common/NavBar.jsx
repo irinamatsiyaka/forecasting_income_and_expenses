@@ -1,4 +1,4 @@
-// NavBar.jsx
+//src/components/common/NavBar.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -16,16 +16,14 @@ const NavBar = () => {
                <Link to="/analytics">Analytics</Link>
             </li>
             <li>
-               <Link to="/forecast">Forecast</Link>
-            </li>
-            <li>
                <Link to="/advanced-forecast">Advanced Forecast</Link>
+            </li>
+
+            <li>
+               <Link to="/fin-analysis">AI</Link>
             </li>
             <li>
                <Link to="/settings">Settings</Link>
-            </li>
-            <li>
-               <Link to="/fin-analysis">AI</Link>
             </li>
          </ul>
       </nav>

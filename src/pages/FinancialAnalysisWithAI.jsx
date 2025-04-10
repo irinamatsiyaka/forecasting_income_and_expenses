@@ -1,7 +1,7 @@
 // src/pages/FinancialAnalysisWithAI.jsx
 import React, { useState } from "react";
 import defaultTransactions from "../data/defaultTransactions.json";
-import { cohereGenerateText } from "../ai/cohereApi";
+import { cohereGenerateText } from "../api/cohereApi";
 
 /**
  * Компонент для демонстрации анализа финансов (JSON-файл) через Cohere:
